@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using tarau_damaris_lab2.Data;
 using tarau_damaris_lab2.Models;
 
-namespace tarau_damaris_lab2.Pages.Books
+namespace tarau_damaris_lab2.Pages.Publishers
 {
     public class IndexModel : PageModel
     {
@@ -19,16 +19,13 @@ namespace tarau_damaris_lab2.Pages.Books
             _context = context;
         }
 
-        public IList<Book> Book { get;set; } = default!;
+        public IList<Publisher> Publisher { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Book != null)
+            if (_context.Publisher != null)
             {
-                Book = await _context.Book
-                  .Include(b => b.Publisher)
-                  .Include(b => b.Author)
-                    .ToListAsync();
+                Publisher = await _context.Publisher.ToListAsync();
             }
         }
     }
