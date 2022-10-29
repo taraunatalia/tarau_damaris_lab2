@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using tarau_damaris_lab2.Data;
 
@@ -11,9 +12,10 @@ using tarau_damaris_lab2.Data;
 namespace tarau_damaris_lab2.Migrations
 {
     [DbContext(typeof(tarau_damaris_lab2Context))]
-    partial class tarau_damaris_lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20221029084653_BookCategory")]
+    partial class BookCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
