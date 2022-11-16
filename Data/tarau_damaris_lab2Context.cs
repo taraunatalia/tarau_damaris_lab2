@@ -19,5 +19,9 @@ namespace tarau_damaris_lab2.Data
         public DbSet<tarau_damaris_lab2.Models.Publisher> Publisher { get; set; }
 
         public DbSet<tarau_damaris_lab2.Models.Category> Category { get; set; }
+
+        public DbSet<tarau_damaris_lab2.Models.Member> Member { get; set; }
+
+        public DbSet<tarau_damaris_lab2.Models.Borrowing> Borrowing { get; set; }
     }
 }

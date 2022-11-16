@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using tarau_damaris_lab2.Data;
+
 using tarau_damaris_lab2.Models;
 
 namespace tarau_damaris_lab2.Pages.Categories
@@ -19,7 +20,12 @@ namespace tarau_damaris_lab2.Pages.Categories
             _context = context;
         }
 
-        public IList<Category> Category { get;set; } = default!;
+        public IList<Category> Category { get; set; } = default!;
+
+        
+        
+       
+
 
         public async Task OnGetAsync()
         {
