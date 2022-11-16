@@ -35,11 +35,24 @@ namespace tarau_damaris_lab2.Pages.Borrowings
             {
                 return NotFound();
             }
+
+            var bookList = _context.Book
+           .Include(b => b.Author)
+           .Select(x => new
+           {
+               x.ID,
+               BookFullName = x.Title + " - " + x.Author.LastName + " " +
+               x.Author.FirstName
+           });
+
             Borrowing = borrowing;
-           ViewData["BookID"] = new SelectList(_context.Book, "ID", "ID");
-           ViewData["MemberID"] = new SelectList(_context.Member, "ID", "ID");
+            
+            ViewData["BookID"] = new SelectList(bookList, "ID", "BookFullName");
+            ViewData["MemberID"] = new SelectList(_context.Member, "ID", "FullName");
             return Page();
+            
         }
+    
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
